@@ -3,6 +3,8 @@ from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
 from django.contrib.auth.models import BaseUserManager
 
+#important article: https://www.codingforentrepreneurs.com/blog/how-to-create-a-custom-django-user-model/
+
 class UserProfileManager(BaseUserManager):
 	"""Manager for user profiles"""
 	def create_user(self, email, name, password=None):
@@ -41,6 +43,7 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
 	is_company_staff = models.BooleanField(default=False)
 	is_staff = models.BooleanField(default=False)
 	is_superuser = models.BooleanField(default=False)
+	is_active = models.BooleanField(default=True)
 
 	objects = UserProfileManager()
 

@@ -1,0 +1,10 @@
+{% extends '../base.html' %}
+
+{% block title %} Your profile{% endblock %}
+
+{% block content %}
+	<h1>Welcome to  your profile</h1>
+	<p>Email: {{ user.email }}</p>
+	<p>Name: {{ user.name }} </p>
+	<p><a href="{% url 'password_change' %}">Change your password</a></p>
+{% endblock %}
